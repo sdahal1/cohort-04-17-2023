@@ -1,0 +1,91 @@
+1. print working directory
+pwd
+
+2. list files and directories in current working directory
+ls
+
+3. how to see the manual
+Mac: "man commandHere" -> example: "man ls"
+Windows: "commandHere --help" -> example: "ls --help"
+
+NOTE: use "q" to quit the manual reader (less reader)
+
+3. More advanced list commands:
+ls -a
+ls -l
+ls -la
+
+
+
+4. Create directory:
+mkdir directoryNameHere
+
+5. create file:
+touch fileNameHere.extensionHere
+Example: "touch pokemon.html"
+
+
+NOTE: when you create a file or directory, avoid spaces in their names
+
+
+6. change into a directory:
+cd directoryNameHere
+
+6.1-What is the home directory and which directory does the terminal open up on by default?
+
+
+7. go to the parent directory
+cd ..
+
+
+NOTE: create commands by default will create the file or directory in the current working directory that the commend is applied on
+
+
+8. Let make this directory structure inside our desktop
+
+PetShelterApp
+├── images
+│   ├── poodle.png
+│   └── cat.png
+└── src
+    ├── javascript
+    │   ├── functions.txt
+    │   ├── loops.txt
+    │   └── scope.txt
+    └── README.md
+
+
+7. Lets practice file paths. If we are in javascript directory, how would we change directory to the images direcotry? 
+
+
+8. Copy files and folders - cp 
+cp 
+cp -r 
+
+9. Move a file or folder- mv 
+mv 
+
+mv fileToMoveHere pathToFinalDestinationFolderHere
+example: 'mv practice.txt ../example.txt'
+
+
+10. Rename a file or folder- mv
+
+mv fileToRenameHere newFileNameHere
+
+
+11. Remove an empty directory
+rmdir pathToDirectoryHere
+
+
+11.1. remove a directory with things inside it
+rm -r directoryNameHere
+
+rm -rf
+
+NOTE: be super careful with rm -r commands
+
+
+11.2 remove a file
+
+rm pathToFileHere
