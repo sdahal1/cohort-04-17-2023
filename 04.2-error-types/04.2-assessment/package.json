@@ -1,0 +1,28 @@
+{
+  "name": "zid-pf-javascript-foundations-01-error-types",
+  "version": "1.0.0",
+  "description": "zid-pf-javascript-foundations-01-error-types qualified challenge.",
+  "main": "src/app.js",
+  "directories": {
+    "src": "src",
+    "doc": "docs"
+  },
+  "scripts": {
+    "docker:build": "docker image build . -t thinkful-ed/zid-pf-javascript-foundations-01-error-types",
+    "docker:run": "docker run --rm -it -p 3000:3000 thinkful-ed/zid-pf-javascript-foundations-01-error-types",
+    "docker:stop": "docker stop $(docker ps -q)",
+    "docker:test": "docker run -t  thinkful-ed/zid-pf-javascript-foundations-01-error-types npm test",
+    "start:solution": "npm run -it docker:build && npm run docker:run",
+    "test": "mocha test",
+    "test:solution": "npm run docker:build && npm run docker:test"
+  },
+  "keywords": [],
+  "author": "Thinkful.com",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "jest": "^26.6.3",
+    "jest-reporter": "^1.0.1",
+    "mocha": "^8.3.2"
+  }
+}
