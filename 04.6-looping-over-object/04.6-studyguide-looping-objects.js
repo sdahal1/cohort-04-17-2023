@@ -32,8 +32,31 @@ console.log(calculateTotalPoints(tournament1))
 
 
 // printGameSummarys
-// The printGameSummarys function will take in the tournament array of game objects and return a string, joined by \n, of the game results for each game
+// The printGameSummarys function will take in the tournament object of game objects and return a string, joined by \n, of the game results for each game
 
 // For example:
 
+function printGameSummarys(tournament){
+  //create a accumulator string
+  let result = "";
+  //loop through tournament obj
+  for(let key in tournament){
+    // console.log('key is this',key) //game 1 or game 2
+    const currentGame = tournament[key]
+    let resultWord;
+    // if(currentGame.homeTeam > currentGame.awayTeam){
+    //   resultWord = 'beat'
+    // }else{
+    //   resultWord = 'lost to'
+    // }
+    const currentGameSummary = `${key}: The home team ${currentGame.homeTeam > currentGame.awayTeam ? 'beat' : 'lost to'} the away team ${currentGame.homeTeam}-${currentGame.awayTeam}\n`
+
+    result += currentGameSummary;
+    // console.log(currentGameSummary)
+  }
+
+  return result;
+}
+
+console.log(printGameSummarys(tournament1))
 //printGameSummarys(tournament1); //> "Game 1: Home team beat the away team 100-85 \n Game 2: Home team lost to the away team 98-100 \n etc;"
