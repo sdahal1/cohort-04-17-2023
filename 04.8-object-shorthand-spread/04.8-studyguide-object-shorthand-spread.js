@@ -38,20 +38,19 @@ const player2 = {
 function updatePlayer(teamName, playerObj) {
 	//can't use player.points, or player.jerseyNumber in the answer
   const {firstName,lastName,points,jerseyNumber,teams} = playerObj
-  teams.push(teamName);
   const result = {
     fullName: `${firstName} ${lastName}`,
-    points,
-    jerseyNumber,
+    points: points,
+    jerseyNumber: jerseyNumber,
     // teams: [...teams, teamName]
-    teams
+    teams: [...teams, teamName]
   }
   
   //return a new object
   return result;
 }
 
-// console.log(updatePlayer("Lakers", player1))
+console.log(updatePlayer("Lakers", player1))
 
 
 /* 
