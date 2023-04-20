@@ -1,0 +1,9 @@
+Unit test: An automated piece of code that checks the behavior of an individual part of a program
+
+Which directory do we usually work in on our qualified assessments? - src
+
+Some benefits of automated testing:
+  - Saves company time in testing developers code to make sure that the code works for several edge cases
+  - Provides code feedback to developers
+  - Improves productivity
+  - Helps developers to write high quality code 
