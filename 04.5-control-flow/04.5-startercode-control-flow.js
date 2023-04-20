@@ -68,6 +68,7 @@ function calculateTax(stateAbbreviation) {
 
 function calculateTax2(stateAbbreviation) {
   let result;
+  //switch between checking if stateAbberviation is ca, co, ga, vt, or other
   switch (stateAbbreviation) {
     case "CA":
       result = 0.0725;
