@@ -73,7 +73,7 @@ const employees = [
   },
   {
     name: "Beyonce",
-    salary: 90000,
+    salary: 900000,
     company: {
       name: "Google",
       city: "Brooklyn",
@@ -111,21 +111,60 @@ function findEmployeeByName(employees=[],name){
 }
 
 // console.log(findEmployeeByNameForEachWay(employees, "Mark Cuban"))
-console.log(findEmployeeByName(employees, "Larry David"))
+// console.log(findEmployeeByName(employees, "Larry David"))
 
 
 
 //get all the employees who are making over a given amount 
-function findHighEarners(employees, amount) {}
+function findHighEarners(employees=[], amount) {
+  const result = employees.filter((element,index)=>{
+    //RETURN A CONDITION
+    return element.salary > amount
+  })
+
+  return result;
+
+}
+
+// console.log(findHighEarners(employees,100000))
+
 
 //give back a new array containing only the company names and city for each employee in the given list
-function findCompanyNamesAndCity(employees) {}
+function giveCompanyNamesAndCity(employees=[]) {
+  const result = employees.map(({name,company})=>{
+    // Drake works at Circuit City
+    return `${name} works at ${company.name}`
+  })
+
+  return result;
+}
+
+//shortWay
+const giveCompanyNamesAndCityShortWay = (employees=[]) =>  employees.map(({name,company})=>`${name} works at ${company.name}`)
+
+// console.log(giveCompanyNamesAndCityShortWay(employees));
 
 //use .some() to check if any employees are from a company with the name "Comedy Central"
-function doesCompanyHaveEmployee(employees, companyName) {}
+function doesCompanyHaveEmployee(employees, companyName) {
+  const result = employees.some((element,index)=>{
+    return element.company.name === companyName
+  })
+
+  return result;
+}
+
+// console.log(doesCompanyHaveEmployee(employees,"Comedy Central"))
 
 //use .every() to indicate whether every employee is making over a certain salary ()
-function areAllEmployeesGettingPaidGivenAmount(employees, amount) {}
+function areAllEmployeesGettingPaidGivenAmount(employees, amount) {
+  const result = employees.every((element,index)=>{
+    return element.salary >= amount;
+  })
+
+  return result;
+}
+
+// console.log(areAllEmployeesGettingPaidGivenAmount(employees,100000))
 
 /* YOU CAN ALSO COMBINE THE BUILT IN ARRAY METHODS!! */
 
@@ -134,4 +173,42 @@ function areAllEmployeesGettingPaidGivenAmount(employees, amount) {}
 HINT: USE .FILTER() TO GET BACK ONLY THE EMPLOYEES WHO MAKE A GIVEN AMOUNT OR MORE, THEN USE .MAP TO TRANSFORM THAT DATA TO A NEW ARRAY CONTAINING THE COMPANY NAMES AND CITY OF THOSE EMPLOYEES
 */
 
+
+function namesOfHighPayingCompanies(employees, amount){
+  //filter the data to only have high paying elements
+  const highPayingElements = employees.filter((element,idx)=>{
+    return element.salary >= amount
+  })
+
+  //transform the filtered dataset to only get the names from the highPayingElements
+  const result = highPayingElements.map((element,index)=>{
+    return element.company.name
+  })
+
+  return result
+}
+
+const namesOfHighPayingCompaniesShortWay = (employees, amount)=> employees.filter(({salary})=> salary >= amount).map(({company})=> company.name)
+
+
+// console.log((namesOfHighPayingCompaniesShortWay(employees,100000))) //["Google", "GreenChef"]
+
+
+
 /* USE FILTER() AND SOME() METHOD TO FIND IF ANY EMPLOYEE FROM A GIVEN STATE HAS A SALARY OF OVER A GIVEN AMOUNT */
+
+function doesStateHaveHighEarner(employees=[], stateName="", amount=0){
+  //filter to get the newyork only dataset
+  const newYorkEmployees = employees.filter((element)=>{
+    return element.company.state === stateName
+  })
+
+  const result = newYorkEmployees.some((element)=>{
+    return element.salary >= amount
+  })
+
+  return result;
+
+}
+
+console.log(doesStateHaveHighEarner(employees,"New York", 100000))
