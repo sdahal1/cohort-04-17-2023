@@ -1,37 +1,42 @@
 /* 
-.find() -> loop through the array to find the first element that matches a condition
-  - accepts a callback function just like forEach does
-  - the callback function accepts parameters for element and index, just like forEach does
-  - the callback function has to return a condition. the .find() method will stop and return the first element that the condition evaluates true for
-  - .find() will return the ELEMENT that condition returns true on.......OR if no element gets a truthy condition, it will return undefined
+.find() -> loop through the array to find the first element that matches a condition.
+  -INPUT: CALLBACK FUNCTION
+  -RETURNS: FOUND ELEMENT OR UNDEFINED
+  -CALLBACK FUNCTION DETAILS:
+    - CB PARAMETERS: ELEMENT AND INDEX
+    - CB RULE: RETURN A CONDITION - the callback function has to return a condition. The .find() method will LOOP and return the FIRST ELEMENT that the condition evaluates true for or undefined if the condition is falsy for every element
 
 
-.filter() -> loop through the array to find the all the elements that matches a condition and will return to you an array of these elements
-  - accepts a callback function just like .forEach and .find() does
-  - the callback function accepts parameters for element and index, just like .forEach and .find() does
-  - the callback function has to return a condition. the filter() method will stop after going through a full array
-  - .filter() will return the ARRAY that contains elements where the condition returns true on.......OR if no elements gets a truthy condition, it will return an empty array
+.filter() -> loop through the array to create a new array with elements that match a condition.
+  -INPUT: CALLBACK FUNCTION
+  -RETURNS: NEW ARRAY WITH MATCHING ELEMENTS or [] 
+  -CALLBACK FUNCTION DETAILS:
+    -CB PARAMETERS: ELEMENT AND INDEX
+    -CB RULE: RETURN A CONDITION - the callback function has to return a condition. The .filter() method will create a new array with elements that the condition evaluates true for.
 
 
-.map() -> loop through the array to transform each element to something else without modifying the original dataset
-  - accepts a callback function just like .forEach and .find() does
-  - the callback function accepts parameters for element and index, just like .forEach and .find() does
-  - the callback function can return anything that we want each element from the original array to "map" or "transform" into
-  - .map() will return the ARRAY that contains transformed elements (of whatever is returned from the callback)
+.map() -> loop through the array to create a new array with transformed elements.
+  -INPUT: CALLBACK FUNCTION
+  -RETURNS: NEW ARRAY WITH TRANSFORMED ELEMENTS
+  -CALLBACK FUNCTION DETAILS:
+    -CB PARAMETERS: ELEMENT AND INDEX
+    -CB RULE: RETURN A TRANSFORMATION - the callback function has to return a transformed value for each element. The .map() method will create a new array with the transformed elements.
 
 
-.some() -> loops through the array to check if "at least one" or "some" elements match the condition in the .some()'s callback function
-  - accepts a callback function just like .forEach and .find() does
-  - the callback function accepts parameters for element and index, just like .forEach and .find() does
-  - the callback function needs to return a CONDITION.
-  - .some() will return BOOLEAN-> TRUE  if any of the elements match that condition in the callbackfunction  or FALSE if NONE of the elements match the condition in the cb
+.some() -> loop through the array to check if at least one element matches a condition.
+  -INPUT: CALLBACK FUNCTION
+  -RETURNS: BOOLEAN
+  -CALLBACK FUNCTION DETAILS:
+    -CB PARAMETERS: ELEMENT AND INDEX
+    -CB RULE: RETURN A CONDITION - the callback function has to return a condition. The .some() method will return true if the condition evaluates true for at least one element or false if the condition is falsy for every element.
 
 
-.every() -> loops through the array to check if "every" element matches the condition in the .every()'s callback function
-  - accepts a callback function just like .forEach and .find() does
-  - the callback function accepts parameters for element and index, just like .forEach and .find() does
-  - the callback function needs to return a CONDITION.
-  - .every() will return BOOLEAN-> TRUE if every one of the elements match that condition in the cb, or FALSE if even one element does not match teh condition in the cb
+.every() -> loop through the array to check if every element matches a condition.
+  -INPUT: CALLBACK FUNCTION
+  -RETURNS: BOOLEAN
+  -CALLBACK FUNCTION DETAILS:
+    -CB PARAMETERS: ELEMENT AND INDEX
+    -CB RULE: RETURN A CONDITION - the callback function has to return a condition. The .every() method will return true if the condition evaluates true for every element or false if the condition is falsy for at least one element.
 
 */
 
@@ -106,7 +111,7 @@ function findEmployeeByName(employees=[],name){
 }
 
 // console.log(findEmployeeByNameForEachWay(employees, "Mark Cuban"))
-// console.log(findEmployeeByName(employees, "Larry David"))
+console.log(findEmployeeByName(employees, "Larry David"))
 
 
 
