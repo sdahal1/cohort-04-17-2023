@@ -2,7 +2,7 @@
 .find() -> loop through the array to find the first element that matches a condition
   - accepts a callback function just like forEach does
   - the callback function accepts parameters for element and index, just like forEach does
-  - the callback function has to return a condition. the find() method will stop and return the first element that the condition evaluates true for
+  - the callback function has to return a condition. the .find() method will stop and return the first element that the condition evaluates true for
   - .find() will return the ELEMENT that condition returns true on.......OR if no element gets a truthy condition, it will return undefined
 
 
@@ -79,7 +79,36 @@ const employees = [
 ];
 
 //find an employee who is named "Larry David" (findParkByName)
-function findEmployeeByName(employees, name) {}
+function findEmployeeByNameForEachWay(employees=[], name) {
+  //declare a variable to store the found element in
+  let foundEmployee = undefined;
+  employees.forEach((element, idx)=>{
+    if(element.name === name){
+      foundEmployee = element
+    }
+  })
+
+  return foundEmployee;
+}
+
+
+function findEmployeeByName(employees=[],name){
+  // arrayNameHere.find(callbackfunctionHere)
+  const foundEmployee = employees.find((element, idx)=>{
+    //RETURN A CONDITION HERE
+    return element.name === name
+  })
+
+  // ONE LINE IMPLICIT RETURN WAY
+  // const foundEmployee = employees.find((element, idx)=>element.name === name)
+
+  return foundEmployee
+}
+
+// console.log(findEmployeeByNameForEachWay(employees, "Mark Cuban"))
+// console.log(findEmployeeByName(employees, "Larry David"))
+
+
 
 //get all the employees who are making over a given amount 
 function findHighEarners(employees, amount) {}
