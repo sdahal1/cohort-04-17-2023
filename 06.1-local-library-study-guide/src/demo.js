@@ -208,7 +208,7 @@ let oneCourse = {
     ],
 };
 
-console.log(getStudentsForCourse(oneCourse, students))
+// console.log(getStudentsForCourse(oneCourse, students))
 
 /* 
 9. getTotalNumberOfClassesForStudent- Given a student object and an array of course objects, find the number of times this student object's id appears in the all the courses rosters array
@@ -222,8 +222,49 @@ let student1 = {
     }
 */
 
-function getTotalNumberOfClassesEnrolledIn(student, courses) {
+function getTotalNumberOfClassesEnrolledIn(student={}, courses=[]) {
+    //set counter = 0;
+    let counter = 0;
+    //loop through the courses array
+    courses.forEach((courseObj)=>{
+        //access the roster of each course
+        const {roster} = courseObj;
+        //loop through the roster
+        roster.forEach((rosterObj)=>{
+            //if the given student's id matches the current rosterObj's studentId, then increse count by 1
+            if(student.id === rosterObj.studentId){
+                //for each rosterObj whose id is matching the given students id, we will increment the count by 1
+                counter++
+            }
+        })
+
+    })
+
+    //return the counter
+    return counter;
 }
+
+function getTotalNumberOfClassesEnrolledIn2(student={}, courses=[]) {
+    //set counter = 0;
+    let counter = courses.reduce((accumulator, courseObj)=>{
+        //access the roster of each course
+        const {roster} = courseObj;
+        //loop through the roster
+        roster.forEach((rosterObj)=>{
+            //if the given student's id matches the current rosterObj's studentId, then increse count by 1
+            if(student.id === rosterObj.studentId){
+                //for each rosterObj whose id is matching the given students id, we will increment the count by 1
+                accumulator++
+            }
+        })
+
+        return accumulator
+    },0)
+
+    //return the counter
+    return counter;
+}
+
 
 let student1 = {
     id: 1,
@@ -233,20 +274,68 @@ let student1 = {
     },
 };
 
-// console.log(getTotalNumberOfClassesEnrolledIn(student1, courses));
+
+
+// console.log(getTotalNumberOfClassesEnrolledIn2(student1, courses));
 
 /* 
-10- Given a student object, an array of course objects and an array of authors objects-> give back all the course objects including the instructor information embedded into the course object for the courses the student is enrolled in
+10- Given a student object, an array of course objects and an array of instructors objects-> give back all the course objects including the instructor information embedded into the course object for the courses the student is enrolled in
 
-
+[]
 
 */
 
-function getCoursesStudentEnrolledIn(student, courses, instructors) {
-    
+let student2 = {
+    id: 2,
+    name: {
+        first: "Scooby",
+        last: "Doo"
+    }
 }
 
-// console.log(getCoursesStudentEnrolledIn(student1, courses, instructors));
+function getCoursesStudentEnrolledIn(student={}, courses=[], instructors=[]) {
+    //create the array to build out
+    const result = [];
+    //look at id of given student
+    //examine every course in the courses array. for each course:
+    courses.forEach((courseObj)=>{
+        //look at the roster of currentCourse by looping through it
+        const {roster} = courseObj;
+        roster.forEach((rosterObj)=>{
+            //check if we can find the rosterObj whose studentId matches the given students id. If we do, 
+            if(rosterObj.studentId === student.id){
+                //modify the courseObj to have a instructor property
+                courseObj.instructor = instructors.find((instructorObj)=>{
+                    return instructorObj.id === courseObj.instructorId
+                })
+                result.push(courseObj)
+            }
+        })
+    })
+    return result;
+}
+
+function getCoursesStudentEnrolledIn2(student={}, courses=[], instructors=[]) {
+    const result = courses.filter((courseObj)=>{
+        //look at the roster of currentCourse by looping through it
+        const {roster} = courseObj;
+        let found = false;
+        roster.forEach((rosterObj)=>{
+            //check if we can find the rosterObj whose studentId matches the given students id. If we do, 
+            if(rosterObj.studentId === student.id){
+                //modify the courseObj to have a instructor property
+                courseObj.instructor = instructors.find((instructorObj)=>{
+                    return instructorObj.id === courseObj.instructorId
+                })
+                found = true;
+            }
+        })
+        return found;
+    })
+    return result;
+}
+
+// console.log(getCoursesStudentEnrolledIn2(student2, courses, instructors));
 
 /*
 11. Get count of courses who have at least on student not onPace- similar to getBooksBorrowedCount(books)
