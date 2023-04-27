@@ -341,8 +341,58 @@ function getCoursesStudentEnrolledIn2(student={}, courses=[], instructors=[]) {
 11. Get count of courses who have at least on student not onPace- similar to getBooksBorrowedCount(books)
 */
 
-function getCoursesNotOnPaceCount(courses) {
-    
+
+function getCoursesNotOnPaceCount(courses=[]) {
+    //initialize a counter = 0
+    let counter = 0;
+    //look at each and every course -> loop
+    courses.forEach(({roster})=>{
+        //look at the roster for each course
+        // const {roster} = courseObj;
+        //look at each rosterObj in the roster -> loop
+        for(let i = 0; i< roster.length;i++){
+            if(roster[i].onPace === false){
+                counter++
+                break;
+            }
+        }
+    })
+    return counter;
+}
+
+function getCoursesNotOnPaceCount2(courses=[]) {
+    //initialize a counter = 0
+    let counter = courses.reduce((accumulator, courseObj)=>{
+        //look at the roster for each course
+        const {roster} = courseObj;
+        //look at each rosterObj in the roster -> loop
+        // for(let i = 0; i< roster.length;i++){
+        //     if(roster[i].onPace === false){
+        //         accumulator++
+        //         break;
+        //     }
+        // }
+        /* 
+         // find way
+         const foundSomeoneNotOnPace = roster.find((rosterObj)=>{
+             return rosterObj.onPace === false
+         })
+         if(foundSomeoneNotOnPace !== undefined){
+             accumulator++
+         }
+        */
+        const foundSomeoneNotOnPace = roster.some((rosterObj)=>{
+            return rosterObj.onPace === false
+        })
+        if(foundSomeoneNotOnPace === true){
+            accumulator++
+        }
+
+        return accumulator;
+
+    },0)
+
+    return counter;
 }
 
 // console.log(getCoursesNotOnPaceCount(courses));
@@ -356,10 +406,35 @@ function getCoursesNotOnPaceCount(courses) {
     { name: "Psychology", count: 2 },
 ]
 
+
+lookup = { 'Software Engineering': 3, Psychology: 2, Finance: 2 } => ["softwareenginereing", "psychology", "finance"]
 */
 
-const getMostCommonCategories = (courses) => {
+const getMostCommonCategories = (courses=[]) => {
+    //initialize the object
+    const lookup = {}
+    //loop through courses
+    courses.forEach((courseObj)=>{
+        const {category} = courseObj;
+        //if the lookup does not contain a key representing the current courseObjs category, then create a key representing that category, and set the value to 1
+        // if(!lookup.hasOwnProperty(category)){
+        //     lookup[category] = 1;
+        // }
+        if(lookup[category] === undefined){ //if lookup at the current category ==== undefined
+            lookup[category] = 1;
+        }else{
+            lookup[category]++
+        }
+    })
+
+    //extract the keys from lookup into an array
+    const categoryKeys = Object.keys(lookup) //[ 'Software Engineering', 'Psychology', 'Finance' ]
     
+    const result = categoryKeys.map((category)=>{
+        return {name: category, count: lookup[category]}
+    })
+
+    return result.slice(0,2)
 };
 
 // console.log(getMostCommonCategories(courses));

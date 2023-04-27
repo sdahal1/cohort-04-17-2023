@@ -11,11 +11,11 @@ const courses = [
             },
             {
                 studentId: 2,
-                onPace: false
+                onPace: true
             },
             {
                 studentId: 3,
-                onPace: true
+                onPace: false
             },
             {
                 studentId: 4,
