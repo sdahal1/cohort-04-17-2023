@@ -451,33 +451,88 @@ Output in this format:
 ]
 */
 
-function getMostPopularCourses(courses) {
-    //find the most pop
 
+
+function getMostPopularCourses(courses=[]) {
+    //sort the courses by the roster size
+    courses = sortCoursesByRosterSize(courses)
+    const top3courses = courses.slice(0,3);
+
+    const result = top3courses.map((courseObj)=>{
+        return {name: courseObj.name, rosterSize: courseObj.roster.length}
+    })
+
+    return result;
+    
 }
 
 // console.log(getMostPopularCourses(courses));
 
 /* 
 
-14. Get instructors of largest classes.
+14. Get instructors of 3 largest classes.
 
 Output in this format: 
 
 [
   { name: 'Rob Dahal', numStudents: 5 },
-  { name: 'Wayne Dyer', numStudents: 4 }
+  { name: 'Wayne Dyer', numStudents: 4 },
+
+]
+
+
+[
+
 ]
 
 */
 
-function instructorsOfLargestClasses(courses, instructors) {
-   
+function instructorsOfLargestClasses(courses=[], instructors=[]) {
+    courses = sortCoursesByRosterSize(courses)
+    const top3courses = courses.slice(0,3);
+
+    const result = [];
+    //find the instructors from each course in top3courses
+    top3courses.forEach((courseObj)=>{
+        const {instructorId} = courseObj;
+
+        const foundInstructor = instructors.find((instructorObj)=>{
+            return instructorId === instructorObj.id
+        })
+        const transformation = { name: helperJoinFirstAndLastNames(foundInstructor.name.first, foundInstructor.name.last), numStudents: courseObj.roster.length }
+        result.push(transformation)
+    })
+
+    return result;
 }
+
+
+function instructorsOfLargestClassesDestructuredWay(courses=[], instructors=[]) {
+    courses = sortCoursesByRosterSize(courses)
+    const top3courses = courses.slice(0,3);
+    return top3courses.map(({instructorId, roster})=>{
+        const {name: {first,last}} = instructors.find(({id})=> instructorId === id)
+        return { name: helperJoinFirstAndLastNames(first, last), numStudents: roster.length }
+    })
+}
+
+
+const instructorsOfLargestClassesDestructuredWayOneLiner = (courses=[], instructors=[]) => sortCoursesByRosterSize(courses).slice(0,3).map(({instructorId, roster})=>{
+    const {name: {first,last}} = instructors.find(({id})=> instructorId === id)
+    return { name: helperJoinFirstAndLastNames(first, last), numStudents: roster.length }
+})
+
 
 function helperJoinFirstAndLastNames(first, last) {
     return `${first} ${last}`;
 }
 
-// console.log(instructorsOfLargestClasses(courses, instructors));
+function sortCoursesByRosterSize(courses=[]){
+    courses.sort((courseA,courseB)=>{
+        return courseB.roster.length - courseA.roster.length
+    })
+    return courses
+}
+
+console.log(instructorsOfLargestClassesDestructuredWay(courses, instructors));
 
