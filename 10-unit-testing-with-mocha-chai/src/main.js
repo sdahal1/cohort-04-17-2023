@@ -24,7 +24,34 @@ function getLowRatedArtists(artists = [], rating) {
 
 // console.log(getLowRatedArtists(artists, 7));
 
-module.exports = { getLowRatedArtists, getAverageRating };
+function assignGrade(score=0) {
+    let result = "F";
+    if(score>1){
+        result = "You cheated"
+    }
+    else if (score >= 0.9) {
+      result = "A"
+    } else if (score >= 0.8) {
+      result = "B";
+    } else if (score >= 0.7) {
+      result = "C";
+    }
+  
+    return result;
+}
+
+function partitionArtistsByRating(artists=[], rating=0){
+    const lowRatedArtists = artists.filter((artist)=>{
+        return artist.rating < rating
+    })
+    const highRatedArtists = artists.filter((artist)=>{
+        return artist.rating >= rating
+    })
+
+    return [lowRatedArtists,highRatedArtists]
+}
+
+module.exports = { getLowRatedArtists, getAverageRating, assignGrade, partitionArtistsByRating };
 
 
 
