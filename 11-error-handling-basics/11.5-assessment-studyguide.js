@@ -8,6 +8,7 @@ const locations = {
     }
 };
 
+
 function goToSecretLocation(lat, lon, passcode) {
     // console.log(lat);
     if (!lat || !lon || !passcode) {
@@ -23,7 +24,7 @@ function goToSecretLocation(lat, lon, passcode) {
             // throw "Nothing to see here!";
         }
     } catch (error) {
-        // console.log(typeof error)
+        console.log("error is this", error)
         if (typeof error === "string") {
             result = error;
         } else {
@@ -40,9 +41,8 @@ function goToSecretLocation(lat, lon, passcode) {
 }
 
 // console.log(goToSecretLocation());
-// console.log(goToSecretLocation("0", 22.54, "ROCKY-MOUNTAINS"));
+// console.log(goToSecretLocation(10, 22.54, "ROCKY-MOUNTAINS"));
 // console.log(goToSecretLocation(28.66, "-105.81", "CHIHUAHUA-MEXICO"));
-// console.log(goToSecretLocation(28.66, "-105.81", "Obie One Kanobie"));
-
+console.log(goToSecretLocation(28.66, "-105.81", "Obie One Kanobie"));
 
 
