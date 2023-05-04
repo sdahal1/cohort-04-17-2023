@@ -1,0 +1,60 @@
+{
+  "players": [
+    {
+      "id": "1",
+      "name": "Lebron James",
+      "team": "Lakers",
+      "number_championships": 4,
+      "state": "California"
+    },
+    {
+      "id": "2",
+      "name": "Steph Curry",
+      "team": "Warriors",
+      "number_championships": 4,
+      "state": "California"
+    },
+    {
+      "id": "3",
+      "name": "Allen Iverson",
+      "team": "Sixers",
+      "number_championships": 0,
+      "state": "Pennsylvania"
+    },
+    {
+      "id": "4",
+      "name": "Luka Doncic",
+      "team": "Mavericks",
+      "number_championships": 0,
+      "state": "Dallas"
+    },
+    {
+      "id": "5",
+      "name": "Kobe",
+      "team": "Lakers",
+      "number_championships": 5,
+      "state": "California"
+    },
+    {
+      "id": "6",
+      "name": "Charles Barkley",
+      "team": "Suns",
+      "number_championships": 0,
+      "state": "Arizona"
+    },
+    {
+      "id": "7",
+      "name": "Michael Jordan",
+      "team": "Bulls",
+      "number_championships": 6,
+      "state": "Illinois"
+    },
+    {
+      "name": "Everett",
+      "team": "Lakers",
+      "number_championships": 7,
+      "state": "California",
+      "id": "6Z7ea6X"
+    }
+  ]
+}

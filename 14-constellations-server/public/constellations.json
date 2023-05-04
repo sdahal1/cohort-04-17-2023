@@ -1,0 +1,100 @@
+[
+  {
+    "id": "UEUrlfX",
+    "name": "Columba",
+    "meaning": "Dove",
+    "starsWithPlanets": 3,
+    "quadrant": "SQ1"
+  },
+  {
+    "id": "zb8QvVt",
+    "name": "Crater",
+    "meaning": "Cup",
+    "starsWithPlanets": 10,
+    "quadrant": "SQ2"
+  },
+  {
+    "id": "32TN5F8",
+    "name": "Draco",
+    "meaning": "Dragon",
+    "starsWithPlanets": 22,
+    "quadrant": "NQ3"
+  },
+  {
+    "id": "KGQIwSq",
+    "name": "Eridanus",
+    "meaning": "River",
+    "starsWithPlanets": 26,
+    "quadrant": "SQ1"
+  },
+  {
+    "id": "zvBpkNq",
+    "name": "Gemini",
+    "meaning": "Twins",
+    "starsWithPlanets": 11,
+    "quadrant": "NQ2"
+  },
+  {
+    "id": "UPtAzfV",
+    "name": "Hydrus",
+    "meaning": "Water Snake",
+    "starsWithPlanets": 5,
+    "quadrant": "SQ1"
+  },
+  {
+    "id": "ISlkF4G",
+    "name": "Leo",
+    "meaning": "Lion",
+    "starsWithPlanets": 19,
+    "quadrant": "NQ2"
+  },
+  {
+    "id": "n2OEOzp",
+    "name": "Libra",
+    "meaning": "Balance",
+    "starsWithPlanets": 8,
+    "quadrant": "SQ3"
+  },
+  {
+    "id": "d6CwhBN",
+    "name": "Orion",
+    "meaning": "Hunter",
+    "starsWithPlanets": 12,
+    "quadrant": "NQ1"
+  },
+  {
+    "id": "E0TwjDN",
+    "name": "Phoenix",
+    "meaning": "Phoenix",
+    "starsWithPlanets": 11,
+    "quadrant": "SQ1"
+  },
+  {
+    "id": "bNHCxXb",
+    "name": "Scorpius",
+    "meaning": "Scorpion",
+    "starsWithPlanets": 17,
+    "quadrant": "SQ3"
+  },
+  {
+    "id": "9Qe-opc",
+    "name": "Ursa Major",
+    "meaning": "Great Bear",
+    "starsWithPlanets": 21,
+    "quadrant": "NQ2"
+  },
+  {
+    "id": "HwLvy2S",
+    "name": "Ursa Minor",
+    "meaning": "Little Bear",
+    "starsWithPlanets": 6,
+    "quadrant": "NQ3"
+  },
+  {
+    "id": "dFBbdkr",
+    "name": "Vela",
+    "meaning": "Sails",
+    "starsWithPlanets": 7,
+    "quadrant": "SQ2"
+  }
+]
