@@ -1,0 +1,93 @@
+1. Basic behavioral questions
+-tell me about yourself and why you're here?
+-what did you learn at the bootcamp
+-how have you overcame challenges before?
+-what do you do when you get stuck on coding problems?
+-what if you're unable to solve a problem on your own?
+-What are your strengths/weaknesses
+
+
+
+
+2. Technical questions
+
+-What is Node?
+    -Allows you to run javascript on your local machine.
+
+
+-What is github vs git?
+
+-what does git init do?
+
+-what does git add -A do?
+
+-what does git commit -m "message here" do?
+
+-what does git push do?
+
+
+-What do you call this "As a logged in user, I should be able to see all my friends who are online on my dashboard"
+
+
+-What do you do when you need some extra tools to help in building your application, but those features dont come with node? Example-> need something to help format dates better
+
+
+-What is a client?
+
+
+-What is a server?
+    -A server is a program that will accept requests and give back a resposne to the client that requests it
+
+
+-What is the request-response cycle?
+    -
+
+-What is a navigator and driver in group work?
+
+
+-What is a unit test. Why is it useful?
+
+
+-What is a package.json file?
+
+
+-What is difference between let and const?
+
+
+-What is a template literal and why is it useful?
+
+
+-What is an object vs Array? -> key value pairs in object, indexes in an array
+
+
+-What does synchronous mean vs asynchronous?
+
+
+-What is a callback function?
+
+-What are higher-order- functions?
+
+
+-Difference between Mocha and Chai? 
+
+
+-What is jest?
+
+
+-what is used to handle asynchronous operations in javascript?
+
+
+-Be able to explain what a promise is-> it is code that is asynchronous where we dont get the resolved information from the operation immediately, it can take an unknown amount of time to finish executing. setTimeOut(), axios calls return promises
+
+
+-what are two ways we learned on how to wait for a promise to fulfill/reject before running the next line of code? In other words: if we want to wait for a promise to fulfill/reject first before we use the data we get back from the promise, what are the two ways we are able to do that?
+    1. aync await syntax
+    2. .then .catch syntax
+
+
+-what would you do if you wanted to try a risky operation that might result in an error, and if that error happens, you don't want to break the whole application and instead handle the error in a way that allows the application to keep running?
+
+    -try/catch
+
+
+-Be able to go through the platform and give a general overview summary of each sub-module topic
