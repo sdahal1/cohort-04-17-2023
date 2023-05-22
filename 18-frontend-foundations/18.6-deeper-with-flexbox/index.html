@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Example 1: flex-direction property (specifies the main axis and cross axis):
+  Options: row (default), column, row-reverse, column-reverse
+  -->
+  <div class="group flex-direction-group">
+    <p class="item">1</p>
+    <p class="item">2</p>
+    <p class="item">3</p>
+    <p class="item">4</p>
+  </div>
+  <!-- Example 2: flex-wrap property: used to wrap contents if the container is too small 
+  Options: wrap, nowrap, wrap-reverse
+  -->
+  <div class="group flex-wrap-group">
+    <p class="item">1</p>
+    <p class="item">2</p>
+    <p class="item">3</p>
+    <p class="item">4</p>
+    <p class="item">5</p>
+    <p class="item">6</p>
+    <p class="item">7</p>
+    <p class="item">8</p>
+    <p class="item">9</p>
+    <p class="item">9</p>
+    <p class="item">9</p>
+    <p class="item">9</p>
+    <p class="item">9</p>
+    <p class="item">9</p>
+    <p class="item">9</p>
+    <p class="item">9</p>
+    <p class="item">9</p>
+    <p class="item">9</p>
+    <p class="item">9</p>
+    <p class="item">9</p>
+
+
+  </div>
+  <!-- Example 3: justify-content property: To distribute the spacing of the items along the main axis:
+  Note: -Main axis is x-axis when flex-direction is row
+        -Main axis is y-axis when flex-direction is column
+  Options: flex-start (default), flex-end, center, space-between, space-around, space-evenly
+  -->
+  <div class="group justify-content-group">
+    <p class="item">1</p>
+    <p class="item">2</p>
+    <p class="item">3</p>
+    <p class="item">4</p>
+  </div>
+  <!-- Example 4: align-items property: To distribute the spacing of the items along the cross axis: 
+    Note: -Cross axis is y-axis when flex-direction is row
+          -Cross axis is x-axis when flex-direction is column
+    Options: stretch (default), flex-start, flex-end, center
+  -->
+  <div class="group align-items-group">
+    <p class="item">1</p>
+    <p class="item">2</p>
+    <p class="item">3</p>
+    <p class="item">4</p>
+  </div>
+
+  <!-- Example 5: align-content property: This property will apply only when there is more than one line of flex items. It has to do with how to get those multiple lines of flex items to space themselves: 
+    
+    Options: stretch (default), flex-start, flex-end, center, space-between, space-around, space-evenly
+  -->
+  <div class="group">
+    <p class="item">1</p>
+    <p class="item">2</p>
+    <p class="item">3</p>
+    <p class="item">4</p>
+  </div>
+
+  <!-- Example 6: order property (applies on the flex children): Used to set the order of the children
+    
+    Options: relative numerical units (1,2,3,etc;)
+  -->
+  <div class="group">
+    <p class="item">1</p>
+    <p class="item">2</p>
+    <p class="item">3</p>
+    <p class="item">4</p>
+  </div>
+
+   <!-- Example 7: flex property (applies on the flex children): Used to determine what portion of the amount of available space will be used up by each child
+    
+    Options: relative numerical units (1,2,3,etc;)
+  -->
+  <div class="group">
+    <p class="item">1</p>
+    <p class="item">2</p>
+    <p class="item">3</p>
+    <p class="item">4</p>
+  </div>
+</body>
+</html>
