@@ -139,3 +139,94 @@ footer p {
 }
 
 /* -------  Media Query ------- */
+@media all and (min-width: 480px){
+  header{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .brand-name{
+    font-size: 36px;
+  }
+
+  #menu li a{
+    font-size: 10px;
+  }
+  
+  form div {
+    flex-direction: column;
+    width: 20%;
+    /* border: 1px solid red; */
+  }
+
+  form button {
+    width: 20%;
+    font-size: 12px;
+  }
+  form {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  form input, form select {
+    /* width: 70px; */
+    width: 90%;
+    font-size: 40%;
+  }
+
+  form label{
+    font-size: 9px;
+  }
+
+  .hide{
+    display: none;
+  }
+
+  #history div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  #history img{
+    width: 25%;
+    /* height: 200px; */
+  }
+
+  .row{
+    display: flex;
+    gap: 10px;
+  }
+
+  .row div{
+    width: 50%;
+  }
+
+  #mount-rushmore img{
+    height: 300px;
+  }
+
+  #handling{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #handling img{
+    width: 100%;
+  }
+
+  #handling div{
+    /* width: 50%; */
+    flex: 1;
+    border: 1px solid red;
+  }
+
+}
+
+
+@media all and (max-width: 380px){
+  #menu {
+    font-size: 10px;
+  }
+}
