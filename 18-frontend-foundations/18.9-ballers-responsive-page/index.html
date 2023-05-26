@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Ballers</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pangolin&family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="brand-name">Ballers</div>
+      <nav>
+        <ul id="menu">
+          <li><a href="#register">Register</a></li>
+          <li><a href="#history">Ballin History</a></li>
+          <li><a href="#mount-rushmore">Mount Rushmore</a></li>
+          <li><a href="#handling">Handling</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Register -->
+      <section id="register">
+        <h2>Shoot your shot: Register Here</h2>
+        <!-- Create a form here -->
+        <form>
+          <div>
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" placeholder="Name here...">
+          </div>
+          <div>
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date">
+          </div>
+          <div>
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date">
+          </div>
+          <div>
+            <label for="jersey_size">Select Jersey Size</label>
+            <select id="jersey_size">
+              <option disabled selected>--Choose a Size--</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+            </select>
+          </div>
+          <button>Submit</button>
+        </form>
+      </section>
+
+      <!-- Ballin History -->
+      <section id="history" class="primary-bg">
+        <h2>Ballin History</h2>
+        <div>
+          <img src="img/jordan-shrug.jpeg" alt="Michael Jordan shrug"
+          />
+          <img src="https://media.tenor.com/5YJNO1BJX5UAAAAM/kobe-bryant-kobe.gif" alt="">
+          <img class="hide" src="https://image.cnbcfm.com/api/v1/image/104427699-GettyImages-458129606.jpg?v=1536249735&w=1920&h=1080" alt="">
+          <img class="hide" src="https://media3.giphy.com/media/NuxRC8DAnC62qWySWz/200w.gif?cid=6c09b952qbf8wfj85zljvvcarqp5rpfz8mpn5ggj6gqmvx1t&rid=200w.gif&ct=g" alt="">
+          <img class="hide" src="img/luka.jpeg" alt="Luka doncic"/>
+  
+          <p>We all know the Greatest of All Time in History is Lebron James. This is a common fact. Once we accept this, we can be able to move forward with our society. We can also appreciate the players in between, from old GOATS like Jordan to new GOATS like Luka".</p>
+        </div>
+      </section>
+
+      <!-- mount-rushmore -->
+      <section id="mount-rushmore">
+        <h2>Basketball Mount Rushmore</h2>
+        <div class="row">
+          <div>
+            <h3>Lebron</h3>
+            <img
+              src="img/lebron.jpeg"
+              alt="lebron game 6"
+            />
+            <p>Lebron is the GOAT</p>
+          </div>
+          <div>
+            <h3>Steph Curry</h3>
+            <img src="img/steph-shooting.jpeg" alt="Steph shooting" />
+            <p>Steph is the greatest shooter of all time.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <h3>Michael Jordan</h3>
+            <img src="img/jordan.jpeg" alt="Jordan" />
+            <p>The Icon himself</p>
+          </div>
+          <div>
+            <h3>Kobe</h3>
+            <img src="img/kobe-angel.jpeg" alt="Kobe" />
+            <p>Kobe doing work, 2-4 on my shirt.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- handling -->
+      <section id="handling" class="primary-bg">
+        <div>
+          <h2>Handling: Want learn to cross up the GOATS?</h2>
+          <p>
+            There is one, and only one, true kryptonite for all the GOATS, its the ankle breaker Allen Iverson, the greatest player under 6 feet of all time. Allen Iverson has taken the ankles of your favorite player at some point. Please make sure you have health insurance for your ankles before seeing Iverson.
+          </p>
+          <p>Steps to cross over</p>
+          <ol>
+            <li>Pretend like you're going left</li>
+            <li>Suddenly just go the opposite direction</li>
+            <li>Carry the ball because refs wont call carry in NBA</li>
+            <li>Watch them fall.</li>
+            <li>Shoot. Walk back and stay blessed.</li>
+          </ol>
+        </div>
+        <div>
+          <img src="img/ai-mj.gif" />
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© BallerShotCallers</p>
+    </footer>
+  </body>
+</html>

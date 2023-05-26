@@ -1,0 +1,232 @@
+/* -------  General Styles ------- */
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0 10px 10px 10px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.5em;
+  margin: 0;
+}
+
+section {
+  padding: 20px;
+}
+
+section.primary-bg {
+  background-color:coral;
+  color: #fff;
+}
+
+/* main img {
+  width: 100px;
+} */
+
+
+
+/* -------  Navigation ------- */
+
+header {
+  background-color:rgb(222, 78, 26);
+  padding: 20px 20px 0 20px;
+  text-align: center;
+}
+
+.brand-name {
+  font-family: cursive;
+  font-size: 72px;
+  color: #fff;
+}
+
+header nav ul li {
+  list-style-type: none;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 20px 0 0;
+}
+
+header nav ul li a:hover {
+  color: #bdbdbd;
+  text-decoration: none;
+}
+
+#menu {
+  display: flex;
+  font-size: 15px;
+}
+
+
+/* -------  Search Form ------- */
+form {
+  border: 2px double rgb(73, 65, 65);
+  padding: 10px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form select,
+form input {
+  margin-bottom: 20px;
+  width: 180px;
+}
+
+form button {
+  background-color: rgb(141, 63, 35);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  padding: 15px;
+  width: 100%;
+}
+
+form div {
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: column; */
+}
+
+/* ------- History -------- */
+#history{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#history img, #mount-rushmore img, #handling img {
+  width: 100%;
+}
+
+/* img{
+  width: 100%;
+} */
+
+/* #mount-rushmore img {
+  width: 100%;
+}
+
+#handling img {
+  width: 100%;
+} */
+
+
+/* -------  Footer ------- */
+
+footer {
+  background-color: #a5a6e1;
+}
+
+footer p {
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* -------  Media Query ------- */
+@media all and (min-width: 480px){
+  header{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .brand-name{
+    font-size: 36px;
+  }
+
+  #menu li a{
+    font-size: 10px;
+  }
+  
+  form div {
+    flex-direction: column;
+    width: 20%;
+    /* border: 1px solid red; */
+  }
+
+  form button {
+    width: 20%;
+    font-size: 12px;
+  }
+  form {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  form input, form select {
+    /* width: 70px; */
+    width: 90%;
+    font-size: 40%;
+  }
+
+  form label{
+    font-size: 9px;
+  }
+
+  .hide{
+    display: none;
+  }
+
+  #history div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  #history img{
+    width: 25%;
+    /* height: 200px; */
+  }
+
+  .row{
+    display: flex;
+    gap: 10px;
+  }
+
+  .row div{
+    width: 50%;
+  }
+
+  #mount-rushmore img{
+    height: 300px;
+  }
+
+  #handling{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #handling img{
+    width: 100%;
+  }
+
+  #handling div{
+    /* width: 50%; */
+    flex: 1;
+    border: 1px solid red;
+  }
+
+}
+
+
+@media all and (max-width: 380px){
+  #menu {
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,61 @@
+
+.group{
+  background-color: rgb(181, 211, 217);
+  border: 2px solid black;
+  margin-bottom: 10px;
+  /* how  would i create cushion inside this container?*/
+  padding: 10px;
+  /* how would i make this a flex container? */
+  display: flex;
+}
+
+.flex-direction-group{
+  /* flex-direction: row; */
+  /* flex-direction: column; */
+  /* flex-direction: row-reverse; */
+  /* flex-direction: column-reverse; */
+}
+
+
+.flex-wrap-group{
+  /* flex-wrap: nowrap; */
+  /* flex-wrap: wrap; */
+  /* flex-wrap: wrap-reverse; */
+
+
+}
+
+.flex-wrap-group p {
+  width: 200px;
+  height: 200px;
+}
+
+.justify-content-group{
+  /* justify-content: flex-start; */
+  /* flex-direction: column; */
+  justify-content: space-between;
+  /* height: 800px; */
+  /* justify-content: flex-end; */
+  /* gap: 10px; */
+  /* justify-content: space-between; */
+  /* justify-content: space-evenly; */
+  /* justify-content: space-around; */
+
+}
+
+.align-items-group{
+  height: 600px;
+  /* align-items: stretch; */
+  /* align-items: flex-start; */
+  /* align-items: flex-end; */
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+
+}
+
+.item{
+  border: 2px solid red;
+}
+
+

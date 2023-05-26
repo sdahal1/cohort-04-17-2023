@@ -1,0 +1,34 @@
+- Basic Terminology for HTML/CSS
+  - Element vs Tags
+  - Containers
+    - divs are the general containers, but now we have more specialized containers for screen readers to be more specific like "nav", "section", "article"
+    - divs are used to group related content together
+  - Parent child relationships
+    - Descendent vs direct child vs sibling
+  - Inline elements vs block elements
+    - Inline (Elements that do not create line breaks. Allows other elements to be next to it if there is enough space)
+      - `<a>` (anchor/link)
+      - `<span>` (generic inline container)
+      - `<img>` (image)
+    - Block (Elements that create line breaks and take up the line. Does not allow other elements to be next to it)
+      - `<p>` (paragraph)
+      - `<div>` (generic block container)
+      - `<p>` (paragraph)
+      - `<h1>-<h6>` (headings)
+      - `<ul>` (unordered list)
+      - `<ol>` (ordered list)
+      - `<li>` (list item)
+  - Selector - The code to target html elements in css 
+  - Margin - space outside the container
+  - Padding - space within the container
+
+- Flexbox terminology:
+  - display: flex
+    - Gives a container access to flex-box properties. It will make the children of the container which has  display: flex set to be "flexible" and lets block elements be "side by side"
+  - Main axis vs cross axis
+    - Main axis is X axis and cross axis is Y axis -  IF the flex-direction is row
+    - Main axis is Y axis and cross axis is X axis -  IF the flex-direction is column
+  - Flex container vs flex item (flex children)
+
+- Flex container properties:
+- Flex item (flex children) properties
