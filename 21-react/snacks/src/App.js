@@ -1,7 +1,7 @@
 
 import Header from './Header';
 import './App.css';
-import SnacksList from './SnacksList';
+import SnacksList, { snacks } from './SnacksList';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       </header>
       <main>
         <SnacksList />
-        
+
       </main>
     </div>
   );
