@@ -1,0 +1,11 @@
+table {
+  border: 1px solid blue;
+}
+
+tr {
+  border: 1px solid red;
+}
+
+td {
+  border: 1px dashed seagreen;
+}

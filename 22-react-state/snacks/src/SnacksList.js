@@ -1,7 +1,6 @@
 import React from 'react';
 import Snack from './Snack';
 
-import './SnacksList.css'
 
 function SnacksList() {
   let snacks = [
@@ -27,26 +26,7 @@ function SnacksList() {
     }
   ]
 
-  // fun extra addition: we're doing a table
   return <div>
-    <table>
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Snack Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td> <img src="https://images.heb.com/is/image/HEBGrocery/000325211" /> </td>
-          <td> Grapes </td>
-        </tr>
-        {snacks.map(snack => <tr key={snack.name}>
-          <td> <img src={snack.imageUrl} /></td>
-          <td> {snack.name} </td>
-        </tr>)}
-      </tbody>
-    </table>
     {snacks.map(snack => <Snack snack={snack} key={snack.name} />)}
   </div>
 }
