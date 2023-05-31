@@ -3,9 +3,8 @@
 import React, { useState } from 'react';
 
 // Step 2: write a basic function that returns some boring HTML
-function Header() {
+function Header({ numberOfClicks, setNumberOfClicks }) {
   // let numberOfClicks = 0;
-  const [numberOfClicks, setNumberOfClicks] = useState(0);
   let getClickMessage = () => {
     if (numberOfClicks > 10) {
       return 'You clicked so many times!'
