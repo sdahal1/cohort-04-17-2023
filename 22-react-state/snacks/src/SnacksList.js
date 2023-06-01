@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Snack from './Snack';
 import './SnacksList.css';
+import AddSnackForm from './AddSnackForm';
 
 function SnacksList({ numberOfClicks }) {
   let [snacks, setSnacks] = useState([
@@ -42,8 +43,18 @@ function SnacksList({ numberOfClicks }) {
     setSnacks(newSnacks);
   }
 
+  // function is how to add a new snack to the snacks array
+  // we pass that function to AddSnackForm as a prop so that it can add a snack when the form is submitted.
+  function addSnack(newSnack) {
+    // make a new array with all the old snacks plus the new snack
+    let newSnacksArray = [...snacks, newSnack];
+    // update the snacks array to be the new array
+    setSnacks(newSnacksArray);
+  }
+
   return <div className={numberOfClicks >= 5 ? 'manyClicks' : ''}>
     <h4>number of clicks is also in SnacksList {numberOfClicks}</h4>
+    <AddSnackForm addSnack={addSnack} />
     {snacks.map(snack => <Snack snack={snack} key={snack.name} setFavorite={setFavorite} />)}
   </div>
 }
