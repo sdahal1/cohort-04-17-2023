@@ -1,7 +1,7 @@
 import React from 'react';
 import './Creature.css';
 
-function Creature({ creature, updateCreature }) {
+function Creature({ creature, updateCreature, deleteCreature }) {
   const { name, abilities, origin, coolness } = creature;
   function getCoolnessClassName() {
     if (coolness > 8) return 'cool';
@@ -22,7 +22,9 @@ function Creature({ creature, updateCreature }) {
         <button onClick={() => updateCoolness(-1)}>-</button>
         <button onClick={() => updateCoolness(1)}>+</button>
       </li>
-
+      <li>
+        <button onClick={() => deleteCreature(creature)}>Delete</button>
+      </li>
     </ul>
   </div>
 }
