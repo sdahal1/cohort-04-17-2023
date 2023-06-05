@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import Show from './Show';
+import SearchForm from './SearchForm';
+import SearchResults from './SearchResults';
 
 function App() {
   let [clicks, setClicks] = useState(0);
@@ -58,10 +60,35 @@ function App() {
   //   }
   // }, [])
 
+  // dealing with the search functionality
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  // when the search term changes, make a request for data from the API
+  useEffect(() => {
+    const abortController = new AbortController();
+    fetch(`https://api.tvmaze.com/search/shows?q=${searchTerm}`,
+      { signal: abortController.signal })
+      .then(response => response.json())
+      .then(data => data.map(completeData => completeData.show))
+      .then(data => setSearchResults(data))
+      .catch(e => {
+        if (e.name === 'AbortError') {
+          console.log('aborted');
+        } else {
+          throw e;
+        }
+      });
+    return () => abortController.abort();
+  }, [searchTerm]);
+
   return (
     <div>
       <h1 onClick={() => setClicks(clicks + 1)} onMouseOver={() => setMouseOvers(mouseOvers + 1)}>TV Showy {clicks} {mouseOvers}</h1>
-      {shows.map(show => <Show show={show} key={show.id} />)}
+      <SearchForm setSearchTerm={setSearchTerm} />
+      {searchResults.length > 0 ?
+        <SearchResults shows={searchResults} /> :
+        shows.map(show => <Show show={show} key={show.id} />)}
     </div>
   );
 }
