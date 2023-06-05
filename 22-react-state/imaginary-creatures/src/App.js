@@ -37,6 +37,11 @@ function App() {
   function updateCreature(creatureToUpdate) {
     setCreatures(creatures.map(c => c === creatureToUpdate ? creatureToUpdate : c))
   }
+  function deleteCreature(creatureToDelete) {
+    let filteredCreatures = creatures.filter(c => c !== creatureToDelete);
+    setCreatures(filteredCreatures);
+  }
+
   return (
     <div className="container">
       <header>
@@ -44,7 +49,7 @@ function App() {
       </header>
       <main>
         <AddCreature addCreatureHandler={addCreature} />
-        <CreatureList creatures={creatures} updateCreature={updateCreature} />
+        <CreatureList creatures={creatures} updateCreature={updateCreature} deleteCreature={deleteCreature} />
       </main>
     </div>
   );
