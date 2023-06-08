@@ -1,9 +1,9 @@
 import React from 'react';
 import Bear from './Bear';
 
-function BearsList({ allOfTheBears, deleteBear }) {
+function BearsList({ allOfTheBears, deleteBear, editBear }) {
   return <div>
-    {allOfTheBears.map(justOneBear => <Bear data={justOneBear} deleteBear={deleteBear} thing="a string" />)}
+    {allOfTheBears.map((justOneBear, i) => <Bear data={justOneBear} deleteBear={deleteBear} editBear={editBear} index={i} />)}
   </div>
 }
 

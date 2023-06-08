@@ -23,6 +23,9 @@ function App() {
       newBear
     ]);
   }
+  function editBear(index, editedBear) {
+    setBears(bears.map((bear, i) => i === index ? editedBear : bear));
+  }
   function deleteBear(bearToDelete) {
     let filteredBears = bears.filter(bear => bear !== bearToDelete);
     setBears(filteredBears);
@@ -31,7 +34,7 @@ function App() {
     <div className="container">
       <h1>Bears</h1>
       <AddBearForm addBear={addBear} />
-      <BearsList allOfTheBears={bears} deleteBear={deleteBear} />
+      <BearsList allOfTheBears={bears} editBear={editBear} deleteBear={deleteBear} />
     </div>
   );
 }
