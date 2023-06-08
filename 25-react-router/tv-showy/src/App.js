@@ -79,7 +79,7 @@ function App() {
           <Route path="/search">
             <SearchPage />
           </Route>
-          <Route path="/shows/:id">
+          <Route path="/tvshows/:id">
             <ShowDetails />
           </Route>
           <Route path="*">
