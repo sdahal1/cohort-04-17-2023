@@ -1,13 +1,21 @@
 const express = require('express');
 const app = express();
+const morgan = require('morgan');
 
 // logging middleware - runs on every request that comes in
 // instead of sending a response, we want to move on to the next handler function that Express can see
 // by calling next()
-app.use('/', (req, res, next) => {
-  console.log(`request ${req.originalUrl} ${new Date().toString()}`)
+// app.use('/', (req, res, next) => {
+//   console.log(`request ${req.originalUrl} ${Date.now()}`)
+//   next();
+// })
+app.use(morgan('dev'));
+
+// middleware function to celebrate potato requests
+function celebratePotato(req, res, next) {
+  console.log('hooray for potatoes');
   next();
-})
+}
 
 // route handlers
 // listen for requests at a specific route and send back a response to that request
@@ -17,27 +25,34 @@ app.get('/', (req, res, next) => {
   res.send('this is the BEST root route');
 })
 
-app.get('/potato', (req, res, next) => {
+app.get('/potato', celebratePotato, (req, res, next) => {
   res.send('what\'s taters, precious??');
-})
+});
 
-// book info - let's practice query parameters
-app.get('/book-info', (req, res, next) => {
-  // http://localhost:5000/book-info?title=To%20Kill%20A%20Mockingbird&author=Harper%20Lee
-  // let title = req.query.title;
-  let { title = 'no title given', author, genre } = req.query;
-  if (genre) {
-    res.send(`${title} is a ${genre.toLowerCase()} book by ${author}`);
+
+// route-level middleware: validate that the genre exists
+// makes our code DRY
+function validateGenreExists(req, res, next) {
+  if (req.query.genre) {
+    next();
   } else {
-    // if there's no genre, go into error handling
-    // 200 default/OK, 201 created, 204 no content, 400 user/client error, 404 not found, 405 method not allowed, 500 server error
     next({
       status: 400,
       message: 'must include a genre query parameter'
     })
   }
+}
+// book info - let's practice query parameters
+app.get('/book-info', validateGenreExists, (req, res, next) => {
+  // http://localhost:5000/book-info?title=To%20Kill%20A%20Mockingbird&author=Harper%20Lee
+  // let title = req.query.title;
+  let { title = 'no title given', author, genre } = req.query;
+  res.send(`${title} is a ${genre.toLowerCase()} book by ${author}`);
 })
 
+app.get('/echo', validateGenreExists, (req, res, next) => {
+  res.send(req.query);
+})
 
 app.get('/books/recent', (req, res, next) => {
   res.send(`You have read Gideon the Ninth recently`);
