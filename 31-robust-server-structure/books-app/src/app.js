@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 
+// require in the book data so we can use it for CRUD
+const books = require('./data/books.js');
+
 // logging middleware - runs on every request that comes in
 // instead of sending a response, we want to move on to the next handler function that Express can see
 // by calling next()
@@ -10,6 +13,8 @@ const morgan = require('morgan');
 //   next();
 // })
 app.use(morgan('dev'));
+// this line makes it possible to make POST requests & read req.body
+app.use(express.json());
 
 // middleware function to celebrate potato requests
 function celebratePotato(req, res, next) {
@@ -58,12 +63,90 @@ app.get('/books/recent', (req, res, next) => {
   res.send(`You have read Gideon the Ninth recently`);
 })
 
-// route parameters
-app.get('/books/:book_title', (req, res, next) => {
-  // route parameters live inside of req.params
-  res.send(`you requested the book ${req.params.book_title}`);
-})
 
+// Book CRUD
+
+function list(req, res, next) {
+  res.send({ data: books });
+}
+function read(req, res, next) {
+  // grab the book ID from the URL (and make it a number)
+  const id = Number(req.params.id);
+  // find the book from the books array that has that ID
+  const book = books.find(b => b.id === id);
+  // if we found the book,
+  // send that book back in the response
+  if (book) {
+    res.send({ data: book });
+  } else {
+    // if we did not find the book, go into error handling, give a 404
+    next({
+      status: 404,
+      message: `Could not find book with id ${req.params.id}`
+    })
+  }
+}
+
+function validateDataExists(req, res, next) {
+  if (req.body.data) {
+    next();
+  } else {
+    next({
+      status: 400,
+      message: "Request body must include a data object"
+    })
+  }
+}
+
+function validateAuthorExists(req, res, next) {
+  if (req.body.data.author) {
+    next();
+  } else {
+    next({
+      status: 400,
+      message: "Request body must include an author"
+    })
+  }
+}
+
+function makeValidatorFor(field) {
+  return function (req, res, next) {
+    if (req.body.data[field]) {
+      next();
+    } else {
+      next({
+        status: 400,
+        message: `Request body must include ${field}`
+      })
+    }
+  }
+}
+
+let nextId = 101;
+function create(req, res, next) {
+  // get the data from req.body that the user sent
+  const { author, country, language, title } = req.body.data;
+  // TODO: validate that data
+  // package that data into an object
+  const newBook = { author, country, language, title, id: nextId };
+  // assign an ID to that object & increment the ID for next time
+  nextId++;
+  // add that object into our books array
+  books.push(newBook);
+  // send back the created object with a 201 Created status code
+  res.status(201).send({ data: newBook })
+}
+app.get('/books', list);
+app.get('/books/:id', read);
+// let validators = ['author', 'country', 'language', 'title'].map(makeValidatorFor);
+app.post('/books',
+  validateDataExists,
+  makeValidatorFor('author'),
+  makeValidatorFor('country'),
+  makeValidatorFor('language'),
+  makeValidatorFor('title'),
+  // ...validators,
+  create);
 
 // app.use does fuzzy/inexact matches - so this will match ANYTHING that starts with /
 // we will use this for a 404 handler - if the user tries to go anywhere else, give them back a 404
