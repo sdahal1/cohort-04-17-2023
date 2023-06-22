@@ -1,0 +1,32 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "predeploy": "npm audit",
+    "deploy": "git push heroku master"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cuid": "^2.1.8",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.5.0",
+    "morgan": "^1.9.1",
+    "uuid": "^3.3.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
+  }
+}

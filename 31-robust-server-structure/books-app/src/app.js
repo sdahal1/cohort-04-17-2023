@@ -168,7 +168,7 @@ app.use((error, req, res, next) => {
   console.log(error);
   const { status = 500, message = 'Internal server error' } = error;
   // send a nice message back to the client so they don't get confused
-  res.status(status).send(message);
+  res.status(status).send({ error: message });
 })
 
 module.exports = app;
