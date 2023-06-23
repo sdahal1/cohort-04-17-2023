@@ -21,6 +21,16 @@ const decksRouter = require('./decks/decks.router');
 app.use('/decks', decksRouter);
 
 
+// 404 handler
+// by putting it after all of our routers, this will only happen
+// if none of the routes in the routers were hit
+app.use((req, res, next) => {
+  next({
+    status: 404,
+    message: `Not found: ${req.originalUrl}`
+  })
+})
+
 // Error Handler
 app.use(function errorHandler(error, req, res, _next) {
   console.error(error);

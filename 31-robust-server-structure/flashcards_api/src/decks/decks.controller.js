@@ -88,9 +88,19 @@ const destroy = (req, res, next) => {
     .end();
 };
 
+const listCards = (req, res, next) => {
+  // pull the deck ID out of the request
+  const { deckId } = req.params;
+  // filter the cards down to just the relevant ones
+  const filteredCards = cards.filter(c => c.deckId === deckId);
+  // send those filtered cards back in the response
+  res.send({ data: filteredCards })
+}
+
 module.exports = {
   list,
   create,
   read,
-  destroy
+  destroy,
+  listCards
 }

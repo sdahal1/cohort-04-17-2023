@@ -6,9 +6,21 @@ const cuid = require('cuid');
 const { cards, decks } = require("../dataStore");
 const logger = require('../utils/logger')
 
-const list = (_req, res, _next) => {
-  res
-    .json({ data: cards });
+const list = (req, res, _next) => {
+  if (req.params.deckId) {
+    // we're in the nested route
+    // filter by deck
+    const { deckId } = req.params;
+    // filter the cards down to just the relevant ones
+    const filteredCards = cards.filter(c => c.deckId === deckId);
+    // send those filtered cards back in the response
+    res.send({ data: filteredCards })
+  } else {
+    // we're just at the /cards route
+    // send all the cards
+    res
+      .json({ data: cards });
+  }
 };
 
 const create = (req, res, next) => {
@@ -54,27 +66,34 @@ const create = (req, res, next) => {
     .json({ data: card });
 };
 
-const read = (req, res, next) => {
-  const { cardId } = req.params;
-  const card = cards.find(c => c.id === cardId);
-
-  // make sure we found a card
-  if (!card) {
-    const message = `Card with id ${cardId} not found.`;
-    return next({ status: 404, message });
-  }
-
-  res.json({ data: card });
-};
-
-const destroy = (req, res, next) => {
+// middleware
+// either syntax is fine
+// function validateCardExists(req, res, next) {}
+const validateCardExists = (req, res, next) => {
   const { cardId } = req.params;
   const cardIndex = cards.findIndex(c => c.id === cardId);
 
   if (cardIndex === -1) {
     const message = `Card id ${cardId} does not exist`;
     return next({ status: 404, message });
+  } else {
+    // the card exists!
+    // save info about the card into res.locals so that
+    // the read and destroy functions can use that info
+    res.locals.cardIndex = cardIndex;
+    res.locals.card = cards[cardIndex];
+    next();
   }
+}
+
+const read = (req, res, next) => {
+  const { card } = res.locals;
+
+  res.json({ data: card });
+};
+
+const destroy = (req, res, next) => {
+  const { cardIndex } = res.locals;
 
   cards.splice(cardIndex, 1);
   res
@@ -85,6 +104,6 @@ const destroy = (req, res, next) => {
 module.exports = {
   list,
   create,
-  read,
-  destroy
+  read: [validateCardExists, read],
+  destroy: [validateCardExists, destroy]
 }
