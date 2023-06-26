@@ -75,26 +75,51 @@ function read(req, res, next) {
   res.send({ data: res.locals.destination });
 }
 
+function update(req, res, next) {
+  // pull data to be updated out of the request body
+  const { location, popularActivity, crowdLevel } = req.body.data;
+  const { index, destination } = res.locals;
+  // update the existing destination based on that data
+  const updatedDestination = {
+    ...destination,
+    location,
+    popularActivity,
+    crowdLevel
+  }
+  destinations[index] = updatedDestination;
+  // send the updated destination in the response
+  res.send({ data: updatedDestination });
+}
+
 function destroy(req, res, next) {
   const { index } = res.locals;
   destinations.splice(index, 1);
   res.status(204).send();
 }
 
+const fieldValidators = ['location', 'popularActivity', 'crowdLevel'].map(validator);
 module.exports = {
   list,
   create: [
     validateDataExists,
     // ...['location', 'popularActivity', 'crowdLevel'].map(validator),
-    validator('location'),
-    validator('popularActivity'),
-    validator('crowdLevel'),
+    // validator('location'),
+    // validator('popularActivity'),
+    // validator('crowdLevel'),
+    ...fieldValidators,
     validateCrowdLevelIsNumeric,
     create
   ],
   read: [
     validateDestinationExists,
     read
+  ],
+  update: [
+    validateDestinationExists,
+    validateDataExists,
+    ...fieldValidators,
+    validateCrowdLevelIsNumeric,
+    update
   ],
   destroy: [
     validateDestinationExists,
