@@ -1,0 +1,31 @@
+[
+  {
+    "id": "13",
+    "location": "Nara, Japan",
+    "popularActivity": "seeing and bowing to the deer",
+    "crowdLevel": 7
+  },
+  {
+    "id": "512",
+    "location": "Antarctica",
+    "popularActivity": "Play with the penguins",
+    "crowdLevel": 0
+  },
+  {
+    "id": "320",
+    "location": "Manti La-Sal National Forest",
+    "popularActivity": [
+      "camping",
+      "hunting",
+      "off-roading",
+      "hiking"
+    ],
+    "crowdLevel": 3
+  },
+  {
+    "id": "212",
+    "location": "New York City",
+    "popularActivity": "fighting cat sized rats",
+    "crowdLevel": 10
+  }
+]
