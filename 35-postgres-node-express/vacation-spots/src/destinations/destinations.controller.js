@@ -1,8 +1,12 @@
 const { destinations } = require('../data');
 const { createId } = require('@paralleldrive/cuid2')
+const knex = require('../db/connection')
 
 function list(req, res, next) {
-  res.send({ data: destinations })
+  // res.send({ data: destinations })
+  knex('destinations')
+    .select('*')
+    .then(dataFromDb => res.send({ data: dataFromDb }))
 }
 
 function validateDataExists(req, res, next) {
