@@ -16,23 +16,30 @@
 
 
 -What is github vs git?
-
+ - Git is a version control system whereas github is an online platform that hosts Git respos
+ 
 -what does git init do?
+    - It creates a new Git repository
 
 -what does git add -A do?
+    - It is used to stage all changes in your current directory for the next commit
 
 -what does git commit -m "message here" do?
+    -It creates the commit (save) and you can add a message to it.
 
 -what does git push do?
+    -Pushes local commits to a remote repository
 
 
 -What do you call this "As a logged in user, I should be able to see all my friends who are online on my dashboard"
+    -A user story for software development, it describes desired funtionality from a users perspective.
 
 
 -What do you do when you need some extra tools to help in building your application, but those features dont come with node? Example-> need something to help format dates better
-
+    -Download other external libraries and modules like Mocha and Chai
 
 -What is a client?
+    - Something that makes a request to a server for some sort of data
 
 
 -What is a server?
@@ -40,44 +47,57 @@
 
 
 -What is the request-response cycle?
-    -
+    - The whole process starting with a Client sending a request to a Server, and the Server giving back a response.
 
 -What is a navigator and driver in group work?
+    - The driver is the individual leading the team and asking if there are any blockers and what everyone is working on. The navigator are the other members of the team.
 
 
 -What is a unit test. Why is it useful?
+    -It tests a specific piece or your code or a function in order to test if it is working correctly.
 
 
 -What is a package.json file?
+    -It is a file that contains all the information about the project, including dependencies, scripts, author info, etc.
 
 
 -What is difference between let and const?
+    - A const variable cannot be redefined. It is "constant" and it will always me the same. A let variable can be redefined.
 
 
 -What is a template literal and why is it useful?
+    -It is a way of writing strings that is concise and convenient. It starts and ends with backticks and uses syntax such as ${}
 
 
--What is an object vs Array? -> key value pairs in object, indexes in an array
+-What is an object vs Array? 
+    -> key value pairs in object, indexes in an array
 
 
 -What does synchronous mean vs asynchronous?
+    -synchronous means that the code runs in the order that it is written. It will also always run BEFORE asynch code. Asynchronous code
+    runs after synchronous and gets put into a queue to run. Asynch code can take various amounts of time to run and complete.
 
 
 -What is a callback function?
+    -A function that is used as a parameter/arguement inside of a function. Example: function example(()=>{})
 
 -What are higher-order- functions?
-
+    -Functions that take other functions as arguments. For example the function that takes a callback function is a higher order function.
 
 -Difference between Mocha and Chai? 
+    -Mocha is a testing framework and Chai is an assertion library
 
 
 -What is jest?
+    -Jest is both a testing framework and assertion library and works similar to Mocha and Chai.
 
 
 -what is used to handle asynchronous operations in javascript?
+    - Callbacks, promises, async/await
 
 
--Be able to explain what a promise is-> it is code that is asynchronous where we dont get the resolved information from the operation immediately, it can take an unknown amount of time to finish executing. setTimeOut(), axios calls return promises
+-Be able to explain what a promise is
+    -> it is code that is asynchronous where we dont get the resolved information from the operation immediately, it can take an unknown amount of time to finish executing. setTimeOut(), axios calls return promises
 
 
 -what are two ways we learned on how to wait for a promise to fulfill/reject before running the next line of code? In other words: if we want to wait for a promise to fulfill/reject first before we use the data we get back from the promise, what are the two ways we are able to do that?
