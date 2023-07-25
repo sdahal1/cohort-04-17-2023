@@ -170,6 +170,13 @@ INSERT INTO candies_colors (candy_id, color_id, color_proportion) VALUES
 	(3,3, .1),
 	(3,6, .2);
 
+INSERT INTO candies_colors (candy_id, color_id, color_proportion) VALUES
+    (4,1, .18),
+	(4,2, .18),
+	(4,3, .18),
+	(4,6, .18),
+	(5, 4, 1);
+
 -- which candies are which colors?
 SELECT candy_name, color_name, color_proportion FROM candies
 	JOIN candies_colors ON candies.id = candies_colors.candy_id 
@@ -179,3 +186,26 @@ SELECT candy_name, color_name, sweetness FROM candies
 	JOIN candies_colors ON candies.id = candies_colors.candy_id 
 	JOIN colors ON candies_colors.color_id = colors.id
 	WHERE color_name = 'blue';
+
+-- other joins for our candies and colors
+INSERT INTO colors (color_name) VALUES ('gray');
+INSERT INTO candies (candy_name, sweetness) VALUES ('clear gummy bears', 6);
+
+
+
+SELECT candy_name, color_name, color_proportion FROM candies
+	LEFT JOIN candies_colors ON candies.id = candies_colors.candy_id 
+	LEFT JOIN colors ON candies_colors.color_id = colors.id;
+
+SELECT candy_name, color_name, color_proportion FROM candies
+	JOIN candies_colors ON candies.id = candies_colors.candy_id 
+	RIGHT JOIN colors ON candies_colors.color_id = colors.id;
+
+SELECT candy_name, color_name, color_proportion FROM candies
+	FULL JOIN candies_colors ON candies.id = candies_colors.candy_id 
+	FULL JOIN colors ON candies_colors.color_id = colors.id;
+
+
+	
+
+
