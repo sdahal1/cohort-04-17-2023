@@ -47,7 +47,6 @@ console.log(maxProfit([7,1,5,3,6])); // 5
 
 // -----------------------------------------------------------
 
-
 function populateArrayRandom(length) {
     let arr = [];
     for(let i = 0; i < length; i++) {
