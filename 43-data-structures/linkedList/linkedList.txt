@@ -1,0 +1,38 @@
+Our memory
+
++---+---+---+---+---+---+---+---+---+---+           
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |10 |
+|   |   |   |   |   |   |   |   |   |   |
++---+---+---+---+---+---+---+---+---+---+        H     
+|11 |12 |13 |14 |15 |16 |17 |18 |19 |20 |       [1,2,3,4]
+|   |   |   |   |   |   |   |   |   |   |
++---+---+---+---+---+---+---+---+---+---+
+|21 |22 |23 |24 |25 |26 |27 |28 |29 |30 |       
+|   |   |   |   |   |   |   |   |   |   |
++---+---+---+---+---+---+---+---+---+---+
+
+
+
+init -> O(N)ST 
+get -> O(N)T O(1)S              get from start -> O(1)T O(1)S
+traverse -> O(N)T O(1)S
+insert/removing ->              insert and remove start -> O(1)T O(1)S
+
+
+Advantages
+-Dynamic size: Linked lists can grow or shrink in size as needed, making them useful for situations where the number of items in the list may change frequently.
+
+Efficient insertion and deletion: Adding or removing an element from a linked list is a relatively simple operation that can be done quickly and efficiently.
+
+-Low memory overhead: Linked lists use only as much memory as is necessary to store the elements in the list, whereas other data structures such as arrays typically have a fixed amount of memory allocated to them.
+
+-No need for reallocation: When elements are inserted or deleted from an array, the entire array may need to be reallocated in memory, which can be time-consuming. Linked lists, on the other hand, do not have this problem because each element is a separate object in memory.
+
+Disatvantages
+-More memory overhead: Each element in a linked list requires extra memory to store the "next" reference, which can increase the overall memory overhead of the data structure.
+
+-No constant-time access: Unlike arrays, linked lists do not provide constant-time access to individual elements. To access a specific element in a linked list, you need to traverse the list from the head, which can take linear time in the worst case.
+
+-Cache unfriendly: Linked list elements are not stored contiguously in memory, which can make them less cache-friendly and lead to slower performance.
+
+-Higher overhead for traversing: Traversing a linked list requires following a reference to the next element, which can have higher overhead than simply indexing into an array.
