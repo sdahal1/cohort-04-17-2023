@@ -46,6 +46,7 @@ class BST {
         }
     }
 
+
     remove(key) {
         // if this is the node we have to remove
         if (key === this.key) {
@@ -197,11 +198,11 @@ class BST {
 
 let BTS = new BST()
 BTS.insert(4, 4).insert(2, 2).insert(6, 6).insert(1, 1).insert(3, 3).insert(5, 5).insert(7, 7)
-// BTS.remove(4)
-console.log(BTS.dfsPreOrder()); // [4,2,1,3,6,5,7]
-console.log(BTS.dfsPostOrder()); // [1,3,2,5,7,6,4]
-console.log(BTS.dfsInOrder()); // [1,2,3,4,5,6,7]
-console.log(BTS.breadthFirstSearch());
+BTS.remove(4)
+// console.log(BTS.dfsPreOrder()); // [4,2,1,3,6,5,7]
+// console.log(BTS.dfsPostOrder()); // [1,3,2,5,7,6,4]
+// console.log(BTS.dfsInOrder()); // [1,2,3,4,5,6,7]
+// console.log(BTS.breadthFirstSearch());
 
 
 /*
